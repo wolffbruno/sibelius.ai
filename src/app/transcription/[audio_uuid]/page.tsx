@@ -38,9 +38,9 @@ export default function Transcription({
 
 	useEffect(() => {
 		console.log(process.env);
-		const audioUrl = `blob:${
-			process.env.VERCEL_URL || "http://localhost:3000"
-		}/${params.audio_uuid}`;
+		const audioUrl = `blob:${"https://sibelius-ai.vercel.app"}/${
+			params.audio_uuid
+		}`;
 
 		fetch(audioUrl)
 			.then((response) => response.blob())
