@@ -8,7 +8,7 @@ export function Input(props: InputProps) {
 			</div>
 			<input
 				{...props}
-				className={`placeholder:text-gray-9 bg-gray-3 border border-gray-7 text-gray-12 px-4 py-2 rounded-md focus:outline focus:outline-primary-7 w-full ${props.className}`}
+				className={`placeholder:text-gray-9 bg-gray-3 border border-gray-7 text-gray-12 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-offset-0 focus:ring-primary-7 focus:border-primary-7 w-full ${props.className}`}
 			/>
 		</div>
 	);

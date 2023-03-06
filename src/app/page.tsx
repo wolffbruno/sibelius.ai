@@ -105,14 +105,13 @@ export default function Home() {
 						>
 							Class subject
 						</label>
-						<input
+						<Input
 							type="text"
 							onChange={(e) => setClassSubject(e.target.value)}
 							name="class_subject"
 							spellCheck={false}
 							autoComplete="off"
 							placeholder="Computer science?"
-							className="placeholder:text-gray-9 bg-gray-3 border border-gray-7 text-gray-12 px-4 py-2 rounded-md focus:outline focus:outline-primary-7 w-full"
 						/>
 					</div>{" "}
 					{!isRecording ? (
@@ -126,7 +125,7 @@ export default function Home() {
 					) : (
 						<Button
 							onClick={stopRecording}
-							className="bg-red-3 border-red-7 focus:outline-red-7 hover:bg-red-4 hover:border-red-8"
+							className="bg-red-3 border-red-7 focus:ring-red-7 focus:border-red-7 hover:bg-red-4 hover:border-red-8"
 						>
 							<div className="w-[1em] h-[1em] rounded-full bg-red-9 animate-pulse" />
 							Recording...
