@@ -93,19 +93,13 @@ export default function Home() {
 						name="api_token"
 						autoComplete="off"
 						spellCheck={false}
-						placeholder="XXX-XXX-XXX-XXX-XXX"
+						placeholder="Token"
 						className="font-mono"
 					/>
 				</div>
 				<div className="w-full flex gap-x-4">
-					<div className="flex flex-col gap-2 relative w-full">
-						<label
-							htmlFor="class_subject"
-							className="absolute -top-[2em] text-gray-11 text-sm"
-						>
-							Class subject
-						</label>
 						<Input
+							label="Class subject"
 							type="text"
 							onChange={(e) => setClassSubject(e.target.value)}
 							name="class_subject"
@@ -113,7 +107,6 @@ export default function Home() {
 							autoComplete="off"
 							placeholder="Computer science?"
 						/>
-					</div>{" "}
 					{!isRecording ? (
 						<Button
 							onClick={startRecording}
