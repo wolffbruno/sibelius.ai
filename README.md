@@ -1,38 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sibelius
 
-## Getting Started
+An app to transcribe class recordings and make annotations, powered by GPT-3.5 Turbo.
 
-First, run the development server:
+## Details ✨
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/26232161/223243493-02f2e542-1a2b-4a65-aea4-9c5403b6fd0d.png">
+<img width="371" alt="image" src="https://user-images.githubusercontent.com/26232161/223244061-7397d7a3-5f8c-4df8-a6f5-b39cfbf6674d.png">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<img width="559" alt="Captura de Tela 2023-03-06 às 18 58 03" src="https://user-images.githubusercontent.com/26232161/223244352-04291642-81e3-426a-9fe0-dcd34bd36cb6.png">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="556" alt="Captura de Tela 2023-03-06 às 19 00 57" src="https://user-images.githubusercontent.com/26232161/223245203-75608253-1c25-4445-9044-d52b369b9fb1.png">
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<img width="542" alt="Captura de Tela 2023-03-06 às 19 06 56" src="https://user-images.githubusercontent.com/26232161/223246829-bb50d60e-4285-4025-a35b-0575441c9928.png">
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
