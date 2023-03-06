@@ -2,7 +2,7 @@ function sleep(): Promise<string> {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve("Hello");
-		}, 1000);
+		}, 10000);
 	});
 }
 

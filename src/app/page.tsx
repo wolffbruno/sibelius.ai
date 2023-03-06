@@ -59,8 +59,9 @@ audioURL
 
 	useEffect(() => {
 		if (audioURL) {
-			/* router.push(`/transcription/${audioURL}?api_token=${apiToken}&class_subject=${classSubject}`); */
-			router.push(`/teste/bruno`);
+			router.push(
+				`/transcription/${audioURL}?api_token=${apiToken}&class_subject=${classSubject}`,
+			);
 		}
 	}, [audioURL, router, apiToken, classSubject]);
 
