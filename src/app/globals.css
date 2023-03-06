@@ -33,5 +33,5 @@
 }
 
 body {
-  @apply selection:bg-primary-11 selection:text-primary-3 text-gray-12 gap-y-24 flex flex-col justify-center items-center min-h-screen bg-gray-1 font-[450] relative;
+  @apply px-6  selection:bg-primary-11 selection:text-primary-3 text-gray-12 gap-y-24 flex flex-col justify-center items-center min-h-screen bg-gray-1 font-[450] relative;
 }

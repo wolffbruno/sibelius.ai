@@ -35,7 +35,7 @@ export default function Transcription({
 
 	return (
 		<main className="w-[96%] sm:w-[500px] min-h-screen h-fit relative">
-			<section className="flex flex-col gap-4 sticky top-0 bg-gradient-to-b p-4 from-gray-1 to-gray-1/50 backdrop-blur-md px-4 rounded-md">
+			<section className="flex flex-col gap-4 sticky top-0 bg-gradient-to-b py-4 from-gray-1 to-gray-1/50 backdrop-blur-md rounded-md">
 				<div className="flex justify-between border-b border-gray-8 pb-4 mt-8">
 					<span
 						onClick={onClickBack}
@@ -64,7 +64,7 @@ export default function Transcription({
 				</h1>
 			</section>
 
-			<section className="text-gray-11 px-4 pb-4">
+			<section className="text-gray-11 pb-4">
 				<h2 className="text-gray-12">Transcription:</h2>
 
 				{isTranscribing ? (
