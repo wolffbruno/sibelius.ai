@@ -80,6 +80,7 @@ audioURL
 						label="OpenAI API Token"
 						onChange={(e) => setApiToken(e.target.value)}
 						name="api_token"
+						autoComplete="off"
 						spellCheck={false}
 						placeholder="XXX-XXX-XXX-XXX-XXX"
 						className="font-mono"
@@ -98,6 +99,7 @@ audioURL
 							onChange={(e) => setClassSubject(e.target.value)}
 							name="class_subject"
 							spellCheck={false}
+							autoComplete="off"
 							placeholder="Computer science?"
 							className="placeholder:text-gray-9 bg-gray-3 border border-gray-7 text-gray-12 px-4 py-2 rounded-md focus:outline focus:outline-primary-7 w-full"
 						/>

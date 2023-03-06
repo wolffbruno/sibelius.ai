@@ -79,7 +79,7 @@ export default function Transcription({
 				</h1>
 			</section>
 
-			<section className="text-gray-11 px-4">
+			<section className="text-gray-11 px-4 pb-4">
 				<h2 className="text-gray-12">Transcription:</h2>
 
 				{isTranscribing ? (
