@@ -8,6 +8,7 @@ import {
 	PlayIcon
 } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -103,6 +104,7 @@ audioURL
 							placeholder="Computer science?"
 							className="placeholder:text-gray-9 bg-gray-3 border border-gray-7 text-gray-12 px-4 py-2 rounded-md focus:outline focus:outline-primary-7 w-full"
 						/>
+						<Link href={`/transcription/${audioURL}?api_token=${apiToken}&class_subject=${classSubject}`}>123</Link>
 					</div>{" "}
 					{!isRecording ? (
 						<Button onClick={startRecording} disabled={!(classSubject && apiToken)}>
