@@ -3,10 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 function useMediaRecorder() {
 	const [recorder, setRecorder] = useState<MediaRecorder | null>(null);
 	const [isRecording, setIsRecording] = useState(false);
-	const [audioURL, setAudioURL] = useState<string | null>(null);
 	const [stream, setStream] = useState<MediaStream | null>(null);
 	const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
 	const [currentTime, setCurrentTime] = useState(0);
+	const [blob, setBlob] = useState<Blob | null>(null);
 
 	// on start, update currentime each second
 	useEffect(() => {
@@ -34,11 +34,10 @@ function useMediaRecorder() {
 	const onDataAvailable = useCallback(
 		(e: BlobEvent) => {
 			const audioBlob = new Blob([e.data], { type: "audio/webm; codecs=opus" });
-			const objectURL = URL.createObjectURL(audioBlob);
 
-			setAudioURL(objectURL.split("/")[objectURL.split("/").length - 1]);
+			setBlob(audioBlob);
 		},
-		[setAudioURL],
+		[setBlob],
 	);
 
 	const onRecordingStopped = useCallback(() => {
@@ -98,7 +97,7 @@ function useMediaRecorder() {
 		stopRecording,
 		analyser,
 		currentTime,
-		audioURL,
+		blob,
 	};
 }
 

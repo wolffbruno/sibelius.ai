@@ -8,22 +8,19 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
+type TranscriptionProps = {
+	apiToken: string;
+	classSubject: string;
+	blob: Blob;
+	onClickBack: () => void;
+};
+
 export default function Transcription({
-	params,
-}: { params: { audio_uuid: string } }) {
-	const router = useRouter();
-	const searchParams = useSearchParams();
-
-	const [apiToken, classSubject] = useMemo(
-		() => [
-			searchParams.get("api_token") || "",
-			searchParams.get("class_subject") || "",
-		],
-		[searchParams],
-	);
-
-	const [blob, setBlob] = useState<Blob | undefined>();
-
+	apiToken,
+	classSubject,
+	blob,
+	onClickBack,
+}: TranscriptionProps) {
 	const { isTranscribing, transcription } = useTranscription(apiToken, blob);
 	const { isSummarizing, summary } = useSummarizing(
 		apiToken,
@@ -36,29 +33,17 @@ export default function Transcription({
 		[isTranscribing, isSummarizing],
 	);
 
-	useEffect(() => {
-		console.log(process.env);
-		const audioUrl = `blob:${"https://sibelius-ai.vercel.app"}/${
-			params.audio_uuid
-		}`;
-
-		fetch(audioUrl)
-			.then((response) => response.blob())
-			.then((blob) => setBlob(blob))
-			.catch((err) => console.error(err));
-	}, [params.audio_uuid]);
-
 	return (
 		<main className="w-[96%] sm:w-[500px] min-h-screen h-fit relative">
 			<section className="flex flex-col gap-4 sticky top-0 bg-gradient-to-b p-4 from-gray-1 to-gray-1/50 backdrop-blur-md px-4 rounded-md">
 				<div className="flex justify-between border-b border-gray-8 pb-4 mt-8">
-					<Link
-						href={"/"}
+					<span
+						onClick={onClickBack}
 						className="text-sm flex gap-x-2 items-center cursor-pointer select-none hover:text-gray-11 transition-colors"
 					>
 						<ArrowUturnLeftIcon className="w-[1em] h-[1em]" />
 						Back to home
-					</Link>
+					</span>
 					<span className="text-sm flex gap-x-2 items-center pointer-events-none select-none transition-colors">
 						{isTranscribing || isSummarizing ? (
 							<Spinner />
@@ -71,7 +56,7 @@ export default function Transcription({
 				</div>
 
 				<h1 className="mb-2">
-					{searchParams.get("class_subject")} (
+					{classSubject} (
 					{new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(
 						new Date(),
 					)}

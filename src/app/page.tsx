@@ -2,28 +2,27 @@
 
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
+import Transcription from "@/components/transcription";
 import { useMediaRecorder } from "@/utils/audio.util";
 import { formatTime } from "@/utils/date.util";
-import {
-	PlayIcon
-} from "@heroicons/react/20/solid";
+import { PlayIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Home() {
-	const router = useRouter();
 	const [apiToken, setApiToken] = useState("");
 	const [classSubject, setClassSubject] = useState("");
-	
+
+	const [showTrascription, setShowTrascription] = useState(false);
+
 	const {
 		isRecording,
 		startRecording,
 		stopRecording,
 		analyser: audioAnalyser,
 		currentTime,
-audioURL
+		blob,
 	} = useMediaRecorder();
 	const animationFrameRef = useRef(0);
 
@@ -58,12 +57,21 @@ audioURL
 	}, [drawBars]);
 
 	useEffect(() => {
-		if (audioURL) {
-			router.push(
-				`/transcription/${audioURL}?api_token=${apiToken}&class_subject=${classSubject}`,
-			);
+		if (blob) {
+			setShowTrascription(true);
 		}
-	}, [audioURL, router, apiToken, classSubject]);
+	}, [blob]);
+
+	if (showTrascription && blob) {
+		return (
+			<Transcription
+				apiToken={apiToken}
+				blob={blob}
+				classSubject={classSubject}
+				onClickBack={() => setShowTrascription(false)}
+			/>
+		);
+	}
 
 	return (
 		<main className="w-[96%] sm:w-[500px] flex flex-col gap-24">
@@ -108,7 +116,10 @@ audioURL
 						/>
 					</div>{" "}
 					{!isRecording ? (
-						<Button onClick={startRecording} disabled={!(classSubject && apiToken)}>
+						<Button
+							onClick={startRecording}
+							disabled={!(classSubject && apiToken)}
+						>
 							<PlayIcon className="w-[1em] h-[1em]" />
 							Start recording
 						</Button>
@@ -125,7 +136,11 @@ audioURL
 			</section>
 			<section className="h-16">
 				{isRecording && (
-					<motion.section className="flex flex-col text-sm gap-y-4 items-center" initial={{ opacity: 0, scale: 0.9}} animate={{ opacity: 1, scale: 1 }}>
+					<motion.section
+						className="flex flex-col text-sm gap-y-4 items-center"
+						initial={{ opacity: 0, scale: 0.9 }}
+						animate={{ opacity: 1, scale: 1 }}
+					>
 						<div className="flex gap-x-1 items-center h-12 overflow-hidden">
 							{frequencies.map((f, i) => (
 								<motion.div
