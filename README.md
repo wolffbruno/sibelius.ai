@@ -2,8 +2,9 @@
 
 An app to transcribe class recordings and make annotations, powered by GPT-3.5 Turbo.
 
-## Details ✨
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/26232161/223243493-02f2e542-1a2b-4a65-aea4-9c5403b6fd0d.png">
+
+## Details ✨
 <img width="371" alt="image" src="https://user-images.githubusercontent.com/26232161/223244061-7397d7a3-5f8c-4df8-a6f5-b39cfbf6674d.png">
 
 <img width="559" alt="Captura de Tela 2023-03-06 às 18 58 03" src="https://user-images.githubusercontent.com/26232161/223244352-04291642-81e3-426a-9fe0-dcd34bd36cb6.png">
