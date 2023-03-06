@@ -37,7 +37,10 @@ export default function Transcription({
 	);
 
 	useEffect(() => {
-		const audioUrl = `blob:http://localhost:3000/${params.audio_uuid}`;
+		console.log(process.env);
+		const audioUrl = `blob:${
+			process.env.VERCEL_URL || "http://localhost:3000"
+		}/${params.audio_uuid}`;
 
 		fetch(audioUrl)
 			.then((response) => response.blob())
